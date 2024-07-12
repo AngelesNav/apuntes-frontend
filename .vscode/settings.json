@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/1e54bb66-f383-4b4c-beca-8881fb4a26f7/resourceGroups/udp-apuntes/providers/Microsoft.Web/sites/ApuntesUDP",
+    "appService.deploySubpath": "."
+}

@@ -37,8 +37,19 @@ function Register() {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
+  const validateEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._%+-]+@mail\.udp\.cl$/;
+    return regex.test(email);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!validateEmail(email)) {
+      setMessage('El correo electrónico debe ser una dirección @mail.udp.cl');
+      return;
+    }
+
     try {
       const response = await fetch('http://localhost:5000/users/register', {
         method: 'POST',
@@ -82,7 +93,7 @@ function Register() {
             onChange={e => setLastName(e.target.value)}
           />
           <TextField
-            label="Email"
+            label="Correo universitario"
             fullWidth
             variant="outlined"
             value={email}
